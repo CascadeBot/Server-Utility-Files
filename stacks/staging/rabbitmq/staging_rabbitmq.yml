@@ -1,10 +1,16 @@
 version: '3.3'
 
 services:
-  staging_rabbitmq:
+  rabbitmq:
     image: rabbitmq:3-management
     networks:
       - staging_rabbitmq
+    volumes:
+      - staging_rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  staging_rabbitmq_data:
+    external: true
 
 networks:
   staging_rabbitmq:

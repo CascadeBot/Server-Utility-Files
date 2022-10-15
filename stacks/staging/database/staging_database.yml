@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  staging_postgres:
+  postgres:
     image: postgres:14-alpine
     volumes: 
       - staging_postgres:/var/lib/postgresql/data

@@ -1,17 +1,25 @@
 version: '3.3'
 
 services:
-  staging_bot:
-    image: cascade:staging-latest
+  bot:
+    image: ghcr.io/cascadebot/bot:staging-latest
     secrets:
       - source: cascade_staging_config
         target: /app/config.yml
+      - source: cascade_staging_login_key
+        target: /app/login.pub
+      - source: cascade_staging_login_pub
+        target: /app/login.key
     networks:
       - staging_rabbitmq
       - staging_database
 
 secrets:
   cascade_staging_config:
+    external: true
+  cascade_staging_login_key:
+    external: true
+  cascade_staging_login_pub:
     external: true
 
 networks:

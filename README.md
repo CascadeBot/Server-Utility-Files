@@ -12,3 +12,4 @@ files used for configuring servers - used for hosting Cascade
  5. add jenkins to stacks
  6. add swarmpit for observability
  7. add traefik
+ 8. add authentication to rabbitmq
