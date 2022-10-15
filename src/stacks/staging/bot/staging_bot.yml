@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  staging_bot:
+    image: cascade:staging-latest
+    secrets:
+      - source: cascade_staging_config
+        target: /app/config.yml
+    networks:
+      - staging_rabbitmq
+      - staging_database
+
+secrets:
+  cascade_staging_config:
+    external: true
+
+networks:
+  staging_rabbitmq:
+    external: true
+  staging_database:
+    external: true
